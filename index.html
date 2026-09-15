@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Space Invaders</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="hud">
+      <div><span>Score</span><strong id="score">0000</strong></div>
+      <div><span>Onda</span><strong id="wave">1</strong></div>
+      <div><span>Vidas</span><strong id="lives">▲ ▲ ▲</strong></div>
+      <div><span>Hi-Score</span><strong id="best">0000</strong></div>
+    </header>
+
+    <section class="stage">
+      <canvas id="game" width="600" height="700"></canvas>
+      <div id="overlay" class="overlay">
+        <h1>SPACE<br>INVADERS</h1>
+        <p><kbd>←</kbd><kbd>→</kbd> ou <kbd>A</kbd><kbd>D</kbd> movem · <kbd>Espaço</kbd> atira · <kbd>P</kbd> pausa</p>
+        <table class="legend">
+          <tr><td class="inv a">▚▞</td><td>30 pts</td></tr>
+          <tr><td class="inv b">▞▚</td><td>20 pts</td></tr>
+          <tr><td class="inv c">▟▙</td><td>10 pts</td></tr>
+          <tr><td class="inv d">◢◣</td><td>???</td></tr>
+        </table>
+        <p class="cta">Toque ou pressione uma tecla para começar</p>
+      </div>
+    </section>
+
+    <nav class="touch" id="touch">
+      <button data-action="left">◀</button>
+      <button data-action="fire">FOGO</button>
+      <button data-action="right">▶</button>
+    </nav>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/sprites.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/invaders.js"></script>
+  <script src="js/bullets.js"></script>
+  <script src="js/shields.js"></script>
+  <script src="js/ufo.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
