@@ -1,0 +1,53 @@
+:root {
+  --bg: #000;
+  --panel: #0a0a0a;
+  --border: #222;
+  --text: #f4f4f4;
+  --muted: #8a8a8a;
+  --green: #3dff6e;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Courier New", ui-monospace, monospace;
+  overflow: hidden;
+  user-select: none; -webkit-user-select: none;
+}
+.wrap { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 10px; }
+.hud { display: flex; gap: 26px; padding: 6px 18px; border: 1px solid var(--border); background: var(--panel); }
+.hud div { display: flex; flex-direction: column; align-items: center; min-width: 70px; }
+.hud span { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.hud strong { font-size: 18px; letter-spacing: .1em; }
+#lives { color: var(--green); }
+.stage { position: relative; }
+#game {
+  display: block;
+  height: min(82vh, 700px); width: auto; aspect-ratio: 6 / 7;
+  border: 2px solid var(--border); background: #000;
+  box-shadow: 0 0 60px rgba(61,255,110,.08);
+  touch-action: none;
+}
+.overlay {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  background: rgba(0,0,0,.85); text-align: center; padding: 20px; cursor: pointer;
+}
+.overlay.hidden { display: none; }
+.overlay h1 { font-size: 44px; letter-spacing: .25em; line-height: 1.1; color: var(--green); text-shadow: 0 0 20px rgba(61,255,110,.5); }
+.overlay p { color: var(--muted); font-size: 13px; line-height: 1.6; }
+.overlay .cta { color: var(--text); margin-top: 6px; animation: blink 1.2s steps(2) infinite; }
+.overlay .big { font-size: 28px; color: var(--text); font-weight: 700; }
+@keyframes blink { to { opacity: .2; } }
+.legend { font-size: 14px; border-spacing: 12px 4px; }
+.legend .inv { font-size: 16px; letter-spacing: -2px; }
+.legend .a { color: #f472b6; } .legend .b { color: #38bdf8; } .legend .c { color: #a3e635; } .legend .d { color: #f87171; }
+kbd { display: inline-block; background: #111; border: 1px solid #333; border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; font-size: 11px; color: var(--text); margin: 0 1px; }
+.touch { display: none; }
+@media (pointer: coarse) {
+  .touch { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 8px; width: min(96vw, 500px); }
+  .touch button { height: 54px; font-family: inherit; font-size: 18px; font-weight: 700; background: var(--panel); border: 1px solid var(--border); color: var(--text); border-radius: 8px; touch-action: manipulation; }
+  .touch button:active { background: var(--green); color: #000; }
+  #game { height: min(60vh, 700px); }
+}
